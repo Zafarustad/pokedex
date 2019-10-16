@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/" exact component={Pokelist} />
+          <Route path="/" component={Pokelist} />
           <Route path="/:pokemon" exact component={PokeDetail} />
         </Switch>
       </Router>
