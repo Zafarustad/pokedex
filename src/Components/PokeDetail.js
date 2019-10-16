@@ -1,0 +1,53 @@
+import React, { useState, useEffect } from "react";
+import "../App.css";
+
+function PokeDetail({ match }) {
+  const [pokemonDetail, setPokemonDetail] = useState([]);
+
+  useEffect(() => {
+    fetchName();
+    // console.log(match);
+  }, []);
+
+  const fetchName = () => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${match.params.pokemon}`)
+      .then(response => response.json())
+      // .then(detail => console.log(detail));
+      .then(detail => setPokemonDetail(detail));
+  };
+
+  return (
+    <div className="App">
+      <div>
+        <img
+          className="tc bg-light-blue dib br2 pa1 ma2 shadow-1"
+          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${match.params.pokemon}.png`}
+          alt=""
+          width="200px"
+          height="200px"
+        ></img>
+      </div>
+      <div className="details">
+        ID: {pokemonDetail.id}
+        <br />
+        <br />
+        name: {pokemonDetail.name}
+        <br />
+        <br />
+        height: {pokemonDetail.height}
+        <br />
+        <br />
+        weight: {pokemonDetail.weight}
+        <br />
+        <br />
+        type: {pokemonDetail.types && pokemonDetail.types[0].type.name}
+        <br />
+        <br />
+        abilities:
+        {pokemonDetail.abilities && pokemonDetail.abilities[0].ability.name}
+      </div>
+    </div>
+  );
+}
+
+export default PokeDetail;
