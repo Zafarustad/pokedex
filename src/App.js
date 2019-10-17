@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Pokelist from "./Components/Pokelist";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import PokeDetail from "./Components/PokeDetail";
 
 class App extends Component {
@@ -9,8 +9,8 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route path="/" component={Pokelist} />
-          <Route path="/:pokemon" exact component={PokeDetail} />
+          <Route path="/" exact component={Pokelist} />
+          <Route path="/:pokemon" component={PokeDetail} />
         </Switch>
       </Router>
     );
