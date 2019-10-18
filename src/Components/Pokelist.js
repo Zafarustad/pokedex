@@ -12,12 +12,21 @@ function Pokelist() {
   const fetchPokemons = () => {
     fetch("https://pokeapi.co/api/v2/pokemon?limit=807")
       .then(response => response.json())
+      //.then(pokes => console.log(pokes));
       .then(pokes => setPokemons(pokes.results));
   };
 
   return (
     <div className="App">
-      <h2>POKEDEX</h2>
+      <div className="pokedex">
+        <img
+          src="http://pngimg.com/uploads/pokeball/pokeball_PNG8.png"
+          alt=""
+          width="60px"
+          height="60px"
+        />
+        <h2>POKEDEX</h2>
+      </div>
       {pokemons.map((pokemon, i) => (
         <Pokecard id={i + 1} key={i} name={pokemon.name} />
       ))}

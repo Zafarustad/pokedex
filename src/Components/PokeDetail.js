@@ -18,16 +18,25 @@ function PokeDetail({ match }) {
 
   return (
     <div className="App">
+      <div className="pokedex">
+        <img
+          src="http://pngimg.com/uploads/pokeball/pokeball_PNG8.png"
+          alt=""
+          width="60px"
+          height="60px"
+        />
+        <h2>POKEDEX</h2>
+      </div>
       <div>
         <img
-          className="tc bg-light-blue dib br2 pa1 ma2 shadow-1"
+          className=" detailimg tc dib pa1 ma2 "
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${match.params.pokemon}.png`}
           alt=""
           width="200px"
           height="200px"
         ></img>
       </div>
-      <div className="details">
+      <div className="details dib">
         ID: {pokemonDetail.id}
         <br />
         <br />
@@ -43,7 +52,7 @@ function PokeDetail({ match }) {
         type: {pokemonDetail.types && pokemonDetail.types[0].type.name}
         <br />
         <br />
-        abilities:
+        abilities:{" "}
         {pokemonDetail.abilities && pokemonDetail.abilities[0].ability.name}
       </div>
     </div>
