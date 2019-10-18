@@ -7,7 +7,7 @@ import PokeDetail from "./Components/PokeDetail";
 class App extends Component {
   render() {
     return (
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Switch>
           <Route path="/" exact component={Pokelist} />
           <Route path="/:pokemon" component={PokeDetail} />
